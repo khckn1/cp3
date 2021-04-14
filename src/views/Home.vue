@@ -1,12 +1,11 @@
 <template>
   <div>
   <div class='header'>
-    <img src='../images/airplane.jpeg' style='width: 100%'/>
+    <img src='/images/airplane.jpeg' style='width: 100%'/>
     <div class='page-title'>
       <h1>Traveling</h1>
     </div>
   </div>
-
   <div class='content'>
     <div class='post introduction'>
       <div class='text'>
@@ -26,41 +25,8 @@
           the beaches or restaurants or “top 10 destinations”. </p>
       </div>
     </div>
-    <div class='post'>
-      <div class='picture'>
-        <img src='../images/k huangshan.jpeg' style='width: 100%'/>
-      </div>
-        <h2>China</h2>
-        <p>Just a week after returning from Colombia, a close friend called
-          and asked if I wanted to move to China with him. Even though I
-          basically hadn’t even unpacked, I told him I was down. His sister
-          had gone to China years before with a non-profit group called...</p>
-        <a href='china.html'>read more...</a>
-    </div>
-    <div class='post'>
-      <div class='picture'>
-        <img src='../images/k colored chicks.jpeg' style='width: 100%'/>
-      </div>
-        <h2>Colombia</h2>
-        <p>You may not always choose when, where, or how. I didn’t choose to
-          go to Colombia, but I chose to go somewhere. Before graduating high
-          school, I applied to serve a mission for my church. The day I
-          graduated I opened the announcement for where I would serve. Knowing
-          a little Spanish (and having failed Spanish), I mispronounced
-          “Medellín” as... </p>
-        <a href='colombia.html'>read more...</a>
-    </div>
-    <div class='post'>
-      <div class='picture'>
-        <img src='../images/k banos del inca.jpeg' style='width: 100%'/>
-      </div>
-        <h2>Peru</h2>
-        <p>After my parents spent considerable time in Guatemala, Uruguay, and
-          Mexico, they decided they wanted to go back. Then spent year serving
-          in South America and felt like they could do more. After a corporate
-          reorganization nixed my Dad’s transfer to South America when I was
-          young, they...</p>
-        <a href='peru.html'>read more...</a>
+    <div class='post preview'>
+    <Preview :posts="posts"/>
     </div>
   </div>
   </div>
@@ -68,14 +34,21 @@
 
 <script>
 // @ is an alias to /src
-
+import Preview from "../components/Preview.vue";
 export default {
   name: "Home",
-  
+  components: {
+    Preview,
+  },
+  computed: {
+    posts() {
+      return this.$root.$data.posts;
+    },
+  }
 };
 </script>
 
-<style scope>
+<style scoped>
   * {
       margin: 0;
       padding: 0;
@@ -86,12 +59,6 @@ export default {
     background-color: #454545;
   }
 
-  .header h1 {
-    font-family: 'Satisfy', cursive;
-    color: #77966d;
-  	text-shadow: 2px 2px #454545;
-  }
-
   h2 {
     font-family: 'Anton', sans-serif;
   }
@@ -99,19 +66,6 @@ export default {
   p {
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 1.4em
-  }
-
-  .bg-dark {
-    background-color: #449dd1 !important;
-  }
-  .navbar-expand-lg .navbar-nav .nav-link {
-    color: #414141 !important;
-    font-family: 'Noto Sans JP', sans-serif !important;
-  }
-
-  .navbar-expand-lg .navbar-nav .active .nav-link {
-    color: #454545 !important;
-    font-family: 'Noto Sans JP', sans-serif !important;
   }
 
   .content {
@@ -125,6 +79,7 @@ export default {
     border: solid 5px #454545;
     padding: 5px;
     width: 100%;
+    background-color: #efe6dd;
   }
 
   .text {
@@ -141,10 +96,6 @@ export default {
     text-align: center;
     color: white;
     border-bottom: solid 15px #77966d;
-  }
-  .post {
-    width: 100%;
-    background-color: #efe6dd;
   }
 
   .page-title {
