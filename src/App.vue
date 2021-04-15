@@ -35,7 +35,7 @@
     <div class='right-box'>
       <div class='other-links'>
         <h3>Other Links</h3>
-        <p><a class='link' href='https://github.com/khckn1/cp2.git'>Github</a></p>
+        <p><a class='link' href='https://github.com/khckn1/cp3'>Github</a></p>
         </div>
     </div>
   </div>
